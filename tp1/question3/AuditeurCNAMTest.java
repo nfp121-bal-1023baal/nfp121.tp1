@@ -119,7 +119,17 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
                 "chloé", "12345");
         assertEquals("Mme Chloé chloé ", "Chloé", auditeur1.nom());
         assertEquals("Mme Chloé chloé ", "chloé", auditeur1.prenom());
-        assertEquals(" nom avec accent (é devient e) ? ", "chloe_c",
+        assertEquals(" nom avec accent (é devient e) ? ", "chlo__c",
+            auditeur1.login());
+    }
+    
+    public void test_nom_court_avec_hach() {
+
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Tin#Tin",
+                "max", "12345");
+        assertEquals("Mr Tin#Tin max ", "Tin#Tin", auditeur1.nom());
+        assertEquals("Mr Tin#Tin max ", "max", auditeur1.prenom());
+        assertEquals("nom court avec particules ? ", "tin_ti_m",
             auditeur1.login());
     }
 }
