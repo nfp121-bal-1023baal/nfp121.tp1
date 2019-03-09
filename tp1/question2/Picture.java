@@ -23,7 +23,7 @@ public class Picture {
     private Circle sun;
     private Circle sun2;
     
-    private boolean terreFixe;
+    private boolean terreFixe = true;
 
     /**
      * Constructor for objects of class Picture
@@ -110,7 +110,7 @@ public class Picture {
        public void coucher()
        {
             setColor();
-           if (terreFixe == true)
+           if (terreFixe)
                     new MyThread();
            
              
