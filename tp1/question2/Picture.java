@@ -22,6 +22,8 @@ public class Picture {
     private Triangle roof;
     private Circle sun;
     private Circle sun2;
+    
+    private boolean terreFixe;
 
     /**
      * Constructor for objects of class Picture
@@ -107,12 +109,11 @@ public class Picture {
       
        public void coucher()
        {
-           setColor();
+            setColor();
+           if (terreFixe == true)
+                    new MyThread();
            
-           new MyThread();
-           
-           
-           
+             
         }
         
         private class MyThread extends Thread
