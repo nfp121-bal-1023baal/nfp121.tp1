@@ -7,6 +7,8 @@ package question3;
  * @author à compléter
  * @see java.lang.String, java.lang.Math
  */
+
+
 public class AuditeurCNAM {
     /** l'attribut nom de chaque auditeur. */
     private String nom;
@@ -51,12 +53,13 @@ public class AuditeurCNAM {
               else
                    out += nom.substring(0,6).toLowerCase() + "_";
                //code to remove accent.
-               
+               out = out.replaceAll("é","e");
                out = out.replaceAll("[^a-z]", "_");
                out += prenom.substring(0,1).toLowerCase();
                
                return out;// à compléter
     }
+    
 
     /**
      * Lecture du nom de l'auditeur.

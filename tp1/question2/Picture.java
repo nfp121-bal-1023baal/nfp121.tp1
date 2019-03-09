@@ -4,6 +4,7 @@ import question1.Circle;
 import question1.Square;
 import question1.Triangle;
 
+
 /**
  * This class represents a simple picture. You can draw the picture using the
  * draw method. But wait, there's more: being an electronic picture, it can be
@@ -51,42 +52,7 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
-        sun.moveHorizontal(180);
-        sun.moveVertical(-10);
-        sun.changeSize(60);
-        sun.makeVisible();
-        
-    }
-
-    
-    /**
-       new methode draw avec une autre sun
-       
-       **/
-       
-       public void newDraw()
-       {
-           
-          wall = new Square();
-        wall.moveVertical(80);
-        wall.changeSize(100);
-        wall.makeVisible();
-
-        window = new Square();
-        window.changeColor("black");
-        window.moveHorizontal(20);
-        window.moveVertical(100);
-        window.makeVisible();
-
-        roof = new Triangle();
-        roof.changeSize(50, 140);
-        roof.moveHorizontal(60);
-        roof.moveVertical(70);
-        roof.makeVisible();
-
-        sun = new Circle();
-        sun.changeColor("yellow");
+        sun.changeColor("blue");
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
@@ -98,47 +64,10 @@ public class Picture {
         sun2.moveVertical(-20);
         sun2.changeSize(50);
         sun2.makeVisible(); 
-        }
         
-        /**
-       change new picture to black/white display
-       */
-      public void newSetBlackAndWhite()
-      {
-          if (wall != null) // only if it's painted already...
-        {
-            wall.changeColor("black");
-            window.changeColor("white");
-            roof.changeColor("black");
-            sun.changeColor("black");
-            sun2.changeColor("black");
-        }
-       }
-       /***
-           change new picture to use color display
-           ***/
-           public void newSetColor() {
-        if (wall != null) // only if it's painted already...
-        {
-            wall.changeColor("red");
-            window.changeColor("black");
-            roof.changeColor("green");
-            sun.changeColor("yellow");
-            sun2.changeColor("yellow");
-        }
     }
     
-    
-    
-    /***
-       methode pour change color of sun
-       ***/
-       public void setSun()
-       {
-           sun.changeColor("blue");
-           sun.moveVertical(100);
-        }
-    /**
+     /**
      * Change this picture to black/white display
      */
     public void setBlackAndWhite() {
@@ -148,7 +77,8 @@ public class Picture {
             window.changeColor("white");
             roof.changeColor("black");
             sun.changeColor("black");
-   
+            sun2.changeColor("black");
+            
         }
     }
     
@@ -164,9 +94,49 @@ public class Picture {
             wall.changeColor("red");
             window.changeColor("black");
             roof.changeColor("green");
-            sun.changeColor("yellow");
-        
+            sun.changeColor("blue");
+            sun2.changeColor("yellow");
+            
         }
     }
+
+    /***
+       methode pour change color of sun
+       ***/
+       
+      
+       public void coucher()
+       {
+           setColor();
+           
+           new MyThread();
+           
+           
+           
+        }
+        
+        private class MyThread extends Thread
+        {
+            public MyThread()
+            {
+                super();
+                start();
+            }
+            int dist=250;
+               public void run(){       
+            while(dist>=0)
+             {
+                  try{
+                sun.slowMoveVertical(10);
+                            dist -= 10;
+                            sleep(200);}
+                        catch(Exception e){e.printStackTrace();}    
+                        
+               
+             }}
+        }
+   
+    
+        
 
 }
